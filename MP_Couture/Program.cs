@@ -6,7 +6,10 @@ namespace MP_Couture
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var user = new User();
+            user.FirstName = "JoeSmith";
+            user.EmailAddress = "pati@email.com";
+
         }
     }
 }
