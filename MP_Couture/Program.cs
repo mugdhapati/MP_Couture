@@ -6,9 +6,11 @@ namespace MP_Couture
     {
         static void Main(string[] args)
         {
-            var user = new User();
-            user.FirstName = "JoeSmith";
-            user.EmailAddress = "pati@email.com";
+            var a1 = new Account();
+            a1.AccountNumber = 1111;
+            a1.FirstName = "Joe";
+            a1.LastName = "Smith";
+            a1.EmailAddress = "pati@email.com";
 
         }
     }
