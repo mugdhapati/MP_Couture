@@ -13,14 +13,16 @@ namespace MP_Couture
     class Account
     {
         #region statics
-        public static int lastaccountnumber = 0;
+        private static int lastAccountNumber = 0;
         #endregion
 
         #region Properities
         /// <summary>
         /// general information of a user like AccountNumber, firstname, lastname, email, phonenumber, createddate
         /// </summary>
-        public int AccountNumber { get; set; } 
+        public int AccountNumber { get; private set; }
+
+        public decimal Balance { get; private set; }
 
         public string FirstName { get; set; }
 
@@ -28,49 +30,39 @@ namespace MP_Couture
 
         public string EmailAddress { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; private set; }
 
         public int PhoneNumber { get; set; }
         #endregion
-        #region
-        public Account()
+
+        #region Constructor 
+        ///<summary>
+        ///Constructor is a method with the same name as Class & is hidden by default
+        ///
+        ///</summary>
+        public Account() ///Constructor has no return type, not even VOID 
         {
-            AccountNumber = ++lastaccountnumber;
+            AccountNumber = ++lastAccountNumber;   
             CreatedDate = DateTime.Now;
 
         }
         #endregion
-    }
-    class ShoppingCart
-    {
-        #region Properities
-        /// <summary>
-        /// User's Shopping Cart
+
+        #region Methods
+        ///<summary>
+        ///User tries to buy/ return products from the ecommerce website
+        /// 
         /// </summary>
-        public int ProductID { get; set; }
-
-        public int Quantity { get; set; }
-
-        public int Price { get; set; }
-
+        /// <param name="amount">Amount </param>
+        public void Buy(decimal amount)
+        {
+            Balance -= amount; 
+        }
+        public void Return(decimal amount)
+        {
+            Balance += amount;
+        }
         #endregion
-
     }
-    #region Methods
-    ///<summary>
-    ///User tries to buy products from the ecommerce website
-    /// 
-    /// </summary>
-    public void Buy()
-    {
-
-    }
-
-    public void Return()
-    {
-
-    }
-    #endregion
-
 }
 
