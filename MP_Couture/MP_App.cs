@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MP_Couture
 {
-    static class MP_App ///MP_App is the Factory class 
+    class MP_App ///MP_App is the Factory class 
     {
         /// <summary>
         /// Creating a collection/list called 'cart'
@@ -13,34 +13,38 @@ namespace MP_Couture
         
         #region Methods
 
-        public static CartItem CreateCart(int productId, string productName, string productSize, Category Category, DateTime orderDate) ///static method - a static class should have a static method not an instance
+        public Customer CreateCustomer(string fistName, string lastName, string emailAddress)
         {
-            
-             var a1 = new Cart /// 
-             {
-                    ///<summary>
-                    /// Building a cart
-                    ///</summary> 
-                    ProductID = productId,
-                    ProductName = productName,
-                    ProductSize = productSize,
-                    
-                    Category = Category
+            var c1 = new Customer
+            {
+                FistName = fistName,
 
-             };
+                LastName = lastName,
 
-            cart.Add(a1);
+                EmailAddress = emailAddress,
 
-            
-            return a1;  /// Returns the account that has been created for the user
+            };
+            return c1;
 
         }
 
-        public static IEnumerable<CartItem> GetAllItems()
+        public Product AddProduct(int productId, string productName, string productSize, int price)
         {
-            return cart;
+            var p1 = new Product
+            {
 
-        }
+                ProductId = productId,
+
+                ProductName = productName,
+
+                ProductSize = productSize,
+
+                Price = price,
+
+            };
+            return p1;
+        }        
+        
        
 
         #endregion

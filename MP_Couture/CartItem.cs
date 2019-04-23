@@ -4,16 +4,7 @@ using System.Text;
 
 namespace MP_Couture
 {
-    enum Category
-    {
-        Tops,
-        Bottoms,
-        Sweaters,
-        Dresses,
-        Outerwear,
-        Shoes,
-        Accessories
-    }
+    
     class CartItem
     {
         #region statics
@@ -24,7 +15,9 @@ namespace MP_Couture
         /// <summary>
         /// Cart Information of a user
         /// </summary>
-        public int CartID { get; private set; }
+        public int CartItemID { get; private set; }
+
+        public int CartID { get; set; }
 
         public int ProductID { get; set; }
 
@@ -32,13 +25,9 @@ namespace MP_Couture
 
         public string ProductSize { get; set; }
 
-        public string EmailAddress { get; set; }
+        public int Quantity { get; set; }
 
-        public Category Category { get; set; }
 
-        public DateTime OrderDate { get; private set; }
-
-        public int PhoneNumber { get; set; }
 
         #endregion
 
