@@ -12,6 +12,8 @@ namespace MP_Couture
 
         public int CartID { get; set; }
 
+        public int CartItems { get; set; }
+
         #endregion
     }
 }

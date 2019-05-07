@@ -16,15 +16,13 @@ namespace MP_Couture
 
         public string EmailAddress { get; set; }
 
+        public int CartID { get; set; }
+
         #endregion
 
         #region Methods
 
-        public static PurchaseItem()
-        {
 
-
-        }
 
         #endregion
     }
