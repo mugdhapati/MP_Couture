@@ -9,7 +9,7 @@ namespace MP_Couture
     {
         public DbSet<Customer> Customers { get; set; }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,13 +33,15 @@ namespace MP_Couture
             });
             modelBuilder.Entity<Cart>(entity =>
             {
-                entity.HasKey("PK_Carts");
+                entity.HasKey(e => e.CartID)
+                    .HasName("PK_Carts");
 
                 entity.Property(e => e.CartID)
                       .ValueGeneratedOnAdd();
 
-                entity.HasOne(e => e.CartItem)
-                      ;
+                entity.HasOne(e => e.Customer)
+                       .WithMany()
+                       .HasForeignKey(e => e.CustomerID);
                       
                 
                         
